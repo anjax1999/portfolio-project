@@ -3,7 +3,7 @@ import { Box, Flex } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
-    <Box backgroundColor="#18181b" width="100vw"> {/* Ustawienie szerokości na 100% viewportu */}
+    <Box backgroundColor="#18181b" width="100%"> {/* Użyj 100% szerokości zamiast 100vw */}
       <footer>
         <Flex
           px={12}

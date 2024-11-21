@@ -52,7 +52,7 @@ const ContactMeSection = () => {
   return (
     <Box
       backgroundColor="#512DA8" // Fioletowe tło
-      width="100vw" // Pełna szerokość ekranu (viewport width)
+      width="100%" // Pełna szerokość ekranu (viewport width)
       minHeight="100vh" // Pełna wysokość ekranu
       padding="0"
       margin="0"

@@ -88,8 +88,8 @@ const Header = () => {
       backgroundColor="#18181b"
       ref={headerRef}
       zIndex={1000}  // Zapewnia widoczność na szczycie
-      width="100vw" // Dostosowanie do szerokości ekranu
-      maxWidth="100vw" // Zapewnia, że pasek nie przekracza szerokości ekranu
+      width="100%" // Dostosowanie do szerokości ekranu
+      maxWidth="100%" // Zapewnia, że pasek nie przekracza szerokości ekranu
       padding={{ base: "0 10px", md: "0 60px" }} // Zmniejszony padding dla mobilnych ekranów
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">

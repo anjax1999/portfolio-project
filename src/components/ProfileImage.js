@@ -4,14 +4,15 @@ import { Image } from "@chakra-ui/react";
 const ProfileImage = ({ src }) => (
   <Image
     src={src}
-    position="absolute"
-    borrom="0"
-    objectFit="contain"
-    width={{ base: "80%", md: "60%", xl: "70%", "2xl": "60%" }}
-    height="auto"
-    alignSelf="flex-end"
-    left={{ md: "0", xl: "0", "2xl": "0" }}
+    objectFit="cover"
+    objectPosition="left"                                   // Wyrównanie obrazu do lewej
+    width={{ base: "96%", lg: "100%", xl: "60%" }}          // Responsywna szerokość
+    height="auto"                                           // Zachowanie proporcji obrazu
+    maxWidth="800px"                                        // Maksymalna szerokość
+    maxHeight="80vh"                                        // Maksymalna wysokość (80% wysokości okna)
+    marginLeft={{ base: "0", lg: "-40px", xl: "-60px" }}    // Przesunięcie w lewo na szerokich ekranach
   />
 );
 
 export default ProfileImage;
+

@@ -34,7 +34,7 @@ const ProjectsSection = () => {
   return (
     <Box
       backgroundColor="#14532d" // Zielone tło
-      width="100vw" // Ustawienie pełnej szerokości ekranu
+      width="100%" // Ustawienie pełnej szerokości ekranu
       minHeight="100vh" // Minimalna wysokość ekranu
       padding="0"
       margin="0"
@@ -42,6 +42,7 @@ const ProjectsSection = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
+      overflowX="hidden"
     >
       <VStack
         w={{ base: "90%", md: "80%", lg: "1024px" }} // Dynamiczna szerokość treści
