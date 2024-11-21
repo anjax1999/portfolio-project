@@ -1,7 +1,7 @@
 import React from "react";
-import FullScreenSection from "./FullScreenSection";
 import { Box, Heading, VStack } from "@chakra-ui/react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./ProjectCard"; // Załóżmy, że masz komponent do wyświetlania kart projektów
+import "./LandingSection.css"; // Zaimportowanie pliku CSS
 
 const projects = [
   {
@@ -32,50 +32,61 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <Box
-      backgroundColor="#14532d" // Zielone tło
-      width="100%" // Ustawienie pełnej szerokości ekranu
-      minHeight="100vh" // Minimalna wysokość ekranu
-      padding="0"
-      margin="0"
-      boxSizing="border-box" // Zapewnia, że padding nie wpływa na szerokość
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      overflowX="hidden"
-    >
-      <VStack
-        w={{ base: "90%", md: "80%", lg: "1024px" }} // Dynamiczna szerokość treści
-        spacing={8}
-        alignItems="flex-start"
-        p={{ base: 4, md: 8 }}
-        boxSizing="border-box"
+    <section id="projects-section" className="projects-section">
+      <Box
+        backgroundColor="#f6e1c3" // kremowe tlo
+        width="100%" // Ustawienie pełnej szerokości ekranu
+        minHeight="100vh" // Minimalna wysokość ekranu
+        padding="0"
+        margin="0"
+
+        boxSizing="border-box" // Zapewnia, że padding nie wpływa na szerokość
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        overflowX="visible"
       >
-        <Heading as="h1" id="projects-section" color="white">
-          Featured Projects
-        </Heading>
-        <Box
-          display="grid"
-          gridTemplateColumns="repeat(2, minmax(0, 1fr))" // Siatka z projektami w dwóch kolumnach
-          gridGap={8}
-          w="100%" // Szerokość siatki dopasowana do szerokości kontenera
+        <VStack
+          w={{ base: "90%", md: "80%", lg: "1024px" }} // Dynamiczna szerokość treści
+          spacing={8}
+          alignItems="center"
+          textAlign="center"
+          p={{ base: 4, md: 8 }}
+          boxSizing="border-box"
         >
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              description={project.description}
-              url="https://github.com/rgommezz/react-native-offline"
-              imageSrc={project.getImageSrc()}
-            />
-          ))}
-        </Box>
-      </VStack>
-    </Box>
+          <Heading
+  as="h1"
+  className="projects-title"
+  fontsize={{ base: "2xl", md: "3xl", lg: "4xl", "2xl": "4xl", "3xl": "4xl"}}
+  fontWeight="bold"
+  fontFamily="'Old Standard TT'"
+  color="#A97F6B"
+  textAlign="center"
+  w="100%"
+>
+  Featured Projects
+</Heading>
+
+          <Box
+            display="grid"
+            gridTemplateColumns="repeat(2, minmax(0, 1fr))" // Siatka z projektami w dwóch kolumnach
+            gridGap={8}
+            w="100%" // Szerokość siatki dopasowana do szerokości kontenera
+          >
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                url="https://github.com/rgommezz/react-native-offline"
+                imageSrc={project.getImageSrc()}
+              />
+            ))}
+          </Box>
+        </VStack>
+      </Box>
+    </section>
   );
 };
 
 export default ProjectsSection;
-
-
-

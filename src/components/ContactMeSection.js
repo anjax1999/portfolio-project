@@ -51,7 +51,9 @@ const ContactMeSection = () => {
 
   return (
     <Box
-      backgroundColor="#512DA8" // Fioletowe tło
+      id="contactme" 
+      backgroundColor="#AFC8F9"
+ // niebieskie tło
       width="100%" // Pełna szerokość ekranu (viewport width)
       minHeight="100vh" // Pełna wysokość ekranu
       padding="0"
@@ -65,10 +67,16 @@ const ContactMeSection = () => {
         w={{ base: "90%", md: "80%", lg: "1024px" }} // Dynamiczna szerokość treści
         spacing={8}
         alignItems="flex-start"
-        p={{ base: 4, md: 16 }} // Różne odstępy w zależności od rozmiaru ekranu
+        p={{ base: 4, md: 4}} // Różne odstępy w zależności od rozmiaru ekranu
         boxSizing="border-box"
       >
-        <Heading as="h1" id="contactme-section" color="white">
+        <Heading  as="h1" className="contactme-title"
+  fontsize={{ base: "2xl", md: "3xl", lg: "4xl", "2xl": "4xl", "3xl": "4xl"}}
+  fontWeight="bold"
+  fontFamily="'Old Standard TT'"
+  color="black"
+  textAlign="center"
+  w="100%">
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
@@ -77,22 +85,22 @@ const ContactMeSection = () => {
               <FormControl
                 isInvalid={!!formik.errors.firstName && formik.touched.firstName}
               >
-                <FormLabel htmlFor="firstName" color="white">
+                <FormLabel htmlFor="firstName" color="black">
                   Name
                 </FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
-                  color="white" // Biały tekst w polu
-                  bg="#D8BFD8"  // Jasno fioletowe tło
+                  color="black" // Biały tekst w polu
+                  bg="#F5F5F5"  // Jasno fioletowe tło
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
               <FormControl
                 isInvalid={!!formik.errors.email && formik.touched.email}
               >
-                <FormLabel htmlFor="email" color="white">
+                <FormLabel htmlFor="email" color="black">
                   Email Address
                 </FormLabel>
                 <Input
@@ -100,21 +108,21 @@ const ContactMeSection = () => {
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
-                  color="white" // Biały tekst w polu
-                  bg="#D8BFD8"  // Jasno fioletowe tło
+                  color="black" // Biały tekst w polu
+                  bg="#F5F5F5"  // Jasno fioletowe tło
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="type" color="white">
+                <FormLabel htmlFor="type" color="black">
                   Type of enquiry
                 </FormLabel>
                 <Select
                   id="type"
                   name="type"
                   {...formik.getFieldProps("type")}
-                  color="white" // Biały tekst w polu wyboru
-                  bg="#D8BFD8"  // Jasno fioletowe tło selecta
+                  color="black" // Biały tekst w polu wyboru
+                  bg="#F5F5F5"  // Jasno fioletowe tło selecta
                 >
                   <option style={{ color: "black" }} value="hireMe">
                     Freelance project proposal
@@ -130,7 +138,7 @@ const ContactMeSection = () => {
               <FormControl
                 isInvalid={!!formik.errors.comment && formik.touched.comment}
               >
-                <FormLabel htmlFor="comment" color="white">
+                <FormLabel htmlFor="comment" color="black">
                   Your message
                 </FormLabel>
                 <Textarea
@@ -138,17 +146,19 @@ const ContactMeSection = () => {
                   name="comment"
                   height={250}
                   {...formik.getFieldProps("comment")}
-                  color="white" // Biały tekst w textarea
-                  bg="#D8BFD8"  // Jasno fioletowe tło textarea
+                  color="black" // Biały tekst w textarea
+                  bg="#F5F5F5"  // Jasno fioletowe tło textarea
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
               <Button
-                type="submit"
-                colorScheme="purple"
-                width="full"
-                isLoading={isLoading}
-              >
+              type="submit"
+              bg="black" // Tło czarne
+              color="white" // Tekst biały
+              width="full"
+              isLoading={isLoading}
+              _hover={{ bg: "gray.700" }} // Opcjonalnie: zmiana koloru przy najechaniu
+            >
                 Submit
               </Button>
             </VStack>

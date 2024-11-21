@@ -133,6 +133,23 @@
     }
   }
 
+  .projects-section {
+    /* Przykładowe style */
+    background-color: #f6e1c3; /* Tło sekcji */
+  }
 
+  @media (min-height: 700px) and (min-width: 600px) {
+  .projects-title {
+    margin-bottom: 100px !important;
+    margin-top: -100px !important; /* Dodaj !important, aby wymusić priorytet */
+  }
+  }
 
-    
+  @media (min-height: 700px) and (min-width: 600px) {
+  .contactme-title {
+    margin-bottom: 100px !important;
+    margin-top: -100px !important; /* Dodaj !important, aby wymusić priorytet */
+  }
+  }
+
+  

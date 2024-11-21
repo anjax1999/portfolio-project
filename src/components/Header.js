@@ -25,15 +25,15 @@ import { HamburgerIcon } from "@chakra-ui/icons";  // Poprawny import
 const socials = [
   {
     icon: faEnvelope,
-    url: "mailto: hello@example.com",
+    url: "mailto: anjax1999@gmail.com",
   },
   {
     icon: faGithub,
-    url: "https://www.github.com/sureskills",
+    url: "https://github.com/anjax1999",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/sureskills/",
+    url: "https://www.linkedin.com/in/anna-dziedzic-734716180",
   }
 ];
 
@@ -115,8 +115,9 @@ const Header = () => {
               <DrawerCloseButton />
               <DrawerBody>
                 <VStack spacing={30} mt={35}>
-                  <Link fontSize="1xl" href="#projects" onClick={handleClick("projects")}>Projects</Link>
-                  <Link fontSize="1xl" href="#contactme" onClick={handleClick("contactme")}>Contact Me</Link>
+                <Link fontSize="1xl" href="#projects">Projects</Link>
+<Link fontSize="1xl" href="#contactme">Contact Me</Link>
+
                   {socials.map(({ icon, url }) => (
                     <a key={url} href={url} target="_blank" rel="noopener noreferrer">
                       <FontAwesomeIcon icon={icon} size="3x" />
@@ -143,8 +144,8 @@ const Header = () => {
           
           {/* Linki Projects i Contact Me - widoczne tylko na większych ekranach */}
           <HStack spacing={8} display={{ base: "none", md: "flex" }}>
-            <Link href="#projects" onClick={handleClick("projects")}>Projects</Link>
-            <Link href="#contactme" onClick={handleClick("contactme")}>Contact Me</Link>
+          <Link fontSize="1xl" href="#projects" onClick={handleClick("projects")}>Projects</Link>
+<Link fontSize="1xl" href="#contactme" onClick={handleClick("contactme")}>Contact Me</Link>
           </HStack>
         </HStack>
       </Box>
