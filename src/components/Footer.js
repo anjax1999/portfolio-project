@@ -13,7 +13,7 @@ const Footer = () => {
           width="100%" 
           height={16}
         >
-          <p>Pete • © 2022</p>
+          <p>Anna Dziedzic • © 2024</p>
         </Flex>
       </footer>
     </Box>
