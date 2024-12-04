@@ -1,3 +1,2 @@
-echo "my-app/node_modules/" >> .gitignoregit rm -r --cached my-app/node_modules
-
+my-app/node_modules/
 node_modules
