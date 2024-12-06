@@ -1,6 +1,6 @@
 # Portfolio Project
 
-** The Portfolio Project** is a responsive web application built with React, designed to showcase a personal portfolio in a modern and interactive way. The project demonstrates expertise in responsive design, seamless frontend-backend integration, and a focus on user-centric interface development.The application includes:
+**The Portfolio Project** is a responsive web application built with React, designed to showcase a personal portfolio in a modern and interactive way. The project demonstrates expertise in responsive design, seamless frontend-backend integration, and a focus on user-centric interface development.The application includes:
 
 * **Contact Form**: 
 A fully functional submission form integrated with a backend (configured with Node.js and Nodemailer, using OAuth2 for secure email functionality).
