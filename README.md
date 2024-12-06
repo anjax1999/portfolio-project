@@ -10,7 +10,8 @@ A dedicated area displaying key projects, highlighting skills and achievements.
 Easy navigation to important platforms such as LinkedIn, GitHub, and other relevant sites.
 * Interactive Text and Design: 
 Engaging and dynamic content that enhances user experience while maintaining a sleek and contemporary aesthetic.
+
 This project demonstrates expertise in responsive design, seamless frontend-backend integration, and a focus on user-centric interface development.
 
-ENG: EN: My portfolio project is available at this address:
+ENG: The project is available at the following address:
 [Portfolio Project](https://anjax1999.github.io/portfolio-project/)
