@@ -25,4 +25,4 @@ Engaging and dynamic content that enhances user experience while maintaining a s
 ----
   
   **ENG**: The project is available at the following address:
-*[Portfolio Project](https://anjax1999.github.io/portfolio-project/)*
+*[Portfolio Project](https://anjax1999.github.io/portfolio-project/)* .
