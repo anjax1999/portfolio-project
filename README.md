@@ -5,9 +5,9 @@
 * **Contact Form**: 
 >A fully functional submission form integrated with a backend (configured with Node.js and Nodemailer, using OAuth2 for secure email functionality).
 Projects Section: 
->A dedicated area displaying key projects, highlighting skills and achievements.
+**A dedicated area displaying key projects, highlighting skills and achievements.**
 * **External Links**: 
-Easy navigation to important platforms such as LinkedIn, GitHub, and other relevant sites.
+>Easy navigation to important platforms such as LinkedIn, GitHub, and other relevant sites.
 * **Interactive Text and Design**: 
 >Engaging and dynamic content that enhances user experience while maintaining a sleek and contemporary aesthetic.
 
