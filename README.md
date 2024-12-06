@@ -15,3 +15,12 @@ This project demonstrates expertise in responsive design, seamless frontend-back
 
 ENG: The project is available at the following address:
 [Portfolio Project](https://anjax1999.github.io/portfolio-project/)
+
+Technologies and Libraries
+
+* React
+* Node.js
+* Nodemailer
+* Redux Toolkit
+* JavaScript
+* HTML5 and CSS3
