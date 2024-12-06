@@ -18,7 +18,7 @@ ENG: The project is available at the following address:
 
 ---
 
-# Technologies and Libraries used in the project: 
+**Technologies and Libraries used in the project**:
 
 * React
 * Node.js
