@@ -16,7 +16,7 @@ This project demonstrates expertise in responsive design, seamless frontend-back
 ENG: The project is available at the following address:
 [Portfolio Project](https://anjax1999.github.io/portfolio-project/)
 
-Technologies and Libraries
+Technologies and Libraries used in the project: 
 
 * React
 * Node.js
