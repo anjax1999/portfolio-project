@@ -22,7 +22,7 @@ Engaging and dynamic content that enhances user experience while maintaining a s
 * JavaScript
 * HTML5 and CSS3
 
->
+----
   
   **ENG**: The project is available at the following address:
 *[Portfolio Project](https://anjax1999.github.io/portfolio-project/)*
