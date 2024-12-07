@@ -3,3 +3,6 @@ node_modules
 node_modules/
 .env
 contact-form-back-end/node_modules/
+client_secret_1030817303717-*.json
+*client_secret*.json
+client_secret.json

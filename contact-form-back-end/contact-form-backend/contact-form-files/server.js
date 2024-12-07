@@ -3,34 +3,27 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const path = require('path');
-const fs = require('fs');
-require('dotenv').config();
+require('dotenv').config(); // Ładowanie zmiennych środowiskowych z .env
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; // Port z pliku .env lub domyślnie 5000
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-// Wczytaj plik JSON z danymi klienta OAuth2
-const CREDENTIALS_PATH = path.join(__dirname, 'client-secret.json'); // Ścieżka do Twojego pliku JSON
-const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf8'));
-
 // Konfiguracja OAuth2
 const oauth2Client = new google.auth.OAuth2(
-  credentials.web.client_id, // Client ID z pliku JSON
-  credentials.web.client_secret, // Client Secret z pliku JSON
-  credentials.web.redirect_uris[0] // Redirect URI z pliku JSON
+  process.env.CLIENT_ID,       // Client ID z pliku .env
+  process.env.CLIENT_SECRET,   // Client Secret z pliku .env
+  process.env.REDIRECT_URI     // Redirect URI z pliku .env
 );
 
-// Ustaw token odświeżania (uzyskany wcześniej z OAuth Playground)
+// Ustaw token odświeżania (z pliku .env)
 oauth2Client.setCredentials({
-  refresh_token: '1//048kDW2FLW65pCgYIARAAGAQSNwF-L9IrKUkzScKn17mbcR1BomZdnU0lJaLD12kajUfyjCsofJIJhx5Di6yavoPonCDrM5o6oR4', // Wstaw tutaj swój Refresh Token
+  refresh_token: process.env.REFRESH_TOKEN, // Refresh Token z pliku .env
 });
 
-path
 // Funkcja tworząca transporter Nodemailer
 async function createTransporter() {
   const accessToken = await oauth2Client.getAccessToken();
@@ -39,10 +32,10 @@ async function createTransporter() {
     service: 'gmail',
     auth: {
       type: 'OAuth2',
-      user: 'anjax1999@gmail.com', // Twój adres e-mail
-      clientId: credentials.installed.client_id,
-      clientSecret: credentials.installed.client_secret,
-      refreshToken: '1//048kDW2FLW65pCgYIARAAGAQSNwF-L9IrKUkzScKn17mbcR1BomZdnU0lJaLD12kajUfyjCsofJIJhx5Di6yavoPonCDrM5o6oR4', // Wstaw Refresh Token
+      user: process.env.EMAIL_USER, // Twój e-mail z pliku .env
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
       accessToken: accessToken.token,
     },
   });
@@ -66,7 +59,7 @@ app.post('/contactme', async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: 'anjax1999@gmail.com', // Twój e-mail odbiorcy
+      to: process.env.EMAIL_USER, // E-mail odbiorcy z pliku .env
       subject: `Contact Form Submission - ${type}`,
       text: `
         Name: ${firstName}
@@ -90,8 +83,8 @@ app.get('/test-email', async (req, res) => {
     const transporter = await createTransporter();
 
     await transporter.sendMail({
-      from: 'anjax1999@gmail.com', // Twój adres e-mail
-      to: 'anjax1999@gmail.com', // Adres testowy
+      from: process.env.EMAIL_USER, // Twój adres e-mail z pliku .env
+      to: process.env.EMAIL_USER, // Adres testowy z pliku .env
       subject: 'Test email',
       text: 'This is a test email sent from the backend using OAuth2!',
     });
