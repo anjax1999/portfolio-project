@@ -1,5 +1,6 @@
 node_modules
-contact-form-back-end/.env
-contact-form-back-end/client_secret.json
-contact-form-back-end/client_secret_*.json
+contact-form-back-end/contact-form-backend/contact-form-files/.env
+contact-form-back-end/contact-form-backend/contact-form-files/client_secret.json
+contact-form-back-end/contact-form-backend/contact-form-files/client_secret_*.json
+
 
