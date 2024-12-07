@@ -29,7 +29,7 @@ const ContactMeSection = () => {
       comment: "",
     },
     onSubmit: (values) => {
-      submit("http://localhost:5000/contactme", values);
+      submit("https://john.com/contactme", values);
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
