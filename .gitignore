@@ -1,1 +1,4 @@
-node_modules/
+node_modules
+.env
+client_secret.json
+client_secret_1030817303717-t3pmdnk6u4inp0ts1fh15sbar9geonls.apps.googleusercontent.com.json
