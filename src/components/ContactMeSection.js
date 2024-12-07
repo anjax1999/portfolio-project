@@ -13,13 +13,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import * as Yup from "yup";
-import FullScreenSection from "./FullScreenSection";
-import useSubmit from "../hooks/useSubmit";
-import { useAlertContext } from "../context/alertContext";
 
 const ContactMeSection = () => {
-  const { isLoading, response, submit } = useSubmit();
-  const { onOpen } = useAlertContext();
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [response, setResponse] = React.useState(null);
 
   const formik = useFormik({
     initialValues: {
@@ -28,8 +25,35 @@ const ContactMeSection = () => {
       type: "hireMe",
       comment: "",
     },
-    onSubmit: (values) => {
-      submit("https://john.com/contactme", values);
+    onSubmit: async (values) => {
+      const API_URL = "https://portfolio-project-90d9.onrender.com";
+      setIsLoading(true);
+      try {
+        const res = await fetch(`${API_URL}/contactme`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+
+        const data = await res.json();
+        setResponse({
+          type: res.ok ? "success" : "error",
+          message: data.message || "Something went wrong",
+        });
+
+        if (res.ok) {
+          formik.resetForm(); // Resetowanie formularza po sukcesie
+        }
+      } catch (error) {
+        setResponse({
+          type: "error",
+          message: "Failed to send message. Please try again later.",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
@@ -42,48 +66,54 @@ const ContactMeSection = () => {
 
   useEffect(() => {
     if (response) {
-      onOpen(response.type, response.message);
-      if (response.type === "success") {
-        formik.resetForm();
-      }
+      alert(`${response.type.toUpperCase()}: ${response.message}`);
     }
-  }, [response, onOpen, formik]);
+  }, [response]);
 
   return (
     <Box
-      id="contactme" 
+      id="contactme"
       backgroundColor="#AFC8F9"
- // niebieskie tło
-      width="100%" // Pełna szerokość ekranu (viewport width)
-      minHeight="100vh" // Pełna wysokość ekranu
+      width="100%"
+      minHeight="100vh"
       padding="0"
       margin="0"
-      boxSizing="border-box" // Zapewnia, że padding nie wpływa na szerokość
+      boxSizing="border-box"
       display="flex"
       justifyContent="center"
       alignItems="center"
     >
       <VStack
-        w={{ base: "90%", md: "80%", lg: "1024px" }} // Dynamiczna szerokość treści
+        w={{ base: "90%", md: "80%", lg: "1024px" }}
         spacing={8}
         alignItems="flex-start"
-        p={{ base: 4, md: 4}} // Różne odstępy w zależności od rozmiaru ekranu
+        p={{ base: 4, md: 4 }}
         boxSizing="border-box"
       >
-        <Heading  as="h1" className="contactme-title"
-  fontsize={{ base: "2xl", md: "3xl", lg: "4xl", "2xl": "4xl", "3xl": "4xl"}}
-  fontWeight="bold"
-  fontFamily="'Old Standard TT'"
-  color="black"
-  textAlign="center"
-  w="100%">
+        <Heading
+          as="h1"
+          fontsize={{
+            base: "2xl",
+            md: "3xl",
+            lg: "4xl",
+            "2xl": "4xl",
+            "3xl": "4xl",
+          }}
+          fontWeight="bold"
+          fontFamily="'Old Standard TT'"
+          color="black"
+          textAlign="center"
+          w="100%"
+        >
           Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl
-                isInvalid={!!formik.errors.firstName && formik.touched.firstName}
+                isInvalid={
+                  !!formik.errors.firstName && formik.touched.firstName
+                }
               >
                 <FormLabel htmlFor="firstName" color="black">
                   Name
@@ -92,8 +122,8 @@ const ContactMeSection = () => {
                   id="firstName"
                   name="firstName"
                   {...formik.getFieldProps("firstName")}
-                  color="black" // Biały tekst w polu
-                  bg="#F5F5F5"  // Jasno fioletowe tło
+                  color="black"
+                  bg="#F5F5F5"
                 />
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
@@ -108,8 +138,8 @@ const ContactMeSection = () => {
                   name="email"
                   type="email"
                   {...formik.getFieldProps("email")}
-                  color="black" // Biały tekst w polu
-                  bg="#F5F5F5"  // Jasno fioletowe tło
+                  color="black"
+                  bg="#F5F5F5"
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
@@ -121,8 +151,8 @@ const ContactMeSection = () => {
                   id="type"
                   name="type"
                   {...formik.getFieldProps("type")}
-                  color="black" // Biały tekst w polu wyboru
-                  bg="#F5F5F5"  // Jasno fioletowe tło selecta
+                  color="black"
+                  bg="#F5F5F5"
                 >
                   <option style={{ color: "black" }} value="hireMe">
                     Freelance project proposal
@@ -146,19 +176,19 @@ const ContactMeSection = () => {
                   name="comment"
                   height={250}
                   {...formik.getFieldProps("comment")}
-                  color="black" // Biały tekst w textarea
-                  bg="#F5F5F5"  // Jasno fioletowe tło textarea
+                  color="black"
+                  bg="#F5F5F5"
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
               <Button
-              type="submit"
-              bg="black" // Tło czarne
-              color="white" // Tekst biały
-              width="full"
-              isLoading={isLoading}
-              _hover={{ bg: "gray.700" }} // Opcjonalnie: zmiana koloru przy najechaniu
-            >
+                type="submit"
+                bg="black"
+                color="white"
+                width="full"
+                isLoading={isLoading}
+                _hover={{ bg: "gray.700" }}
+              >
                 Submit
               </Button>
             </VStack>

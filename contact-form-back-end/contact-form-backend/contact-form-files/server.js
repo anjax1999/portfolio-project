@@ -8,9 +8,15 @@ require('dotenv').config(); // Ładowanie zmiennych środowiskowych z .env
 const app = express();
 const PORT = process.env.PORT || 5000; // Port z pliku .env lub domyślnie 5000
 
-// Middleware
+// Middleware do parsowania JSON
 app.use(bodyParser.json());
-app.use(cors());
+
+// Konfiguracja CORS
+const corsOptions = {
+  origin: "https://anjax1999.github.io", // Twój adres GitHub Pages
+  methods: "GET,POST",
+};
+app.use(cors(corsOptions));
 
 // Konfiguracja OAuth2
 const oauth2Client = new google.auth.OAuth2(
