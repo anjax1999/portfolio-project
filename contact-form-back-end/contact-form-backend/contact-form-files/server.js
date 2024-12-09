@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 
 // Konfiguracja OAuth2
 const oauth2Client = new google.auth.OAuth2(
-  process.env.CLIENT_ID,       // Client ID z pliku .env
+  process.env. CLIENT_ID,       // Client ID z pliku .env
   process.env.CLIENT_SECRET,   // Client Secret z pliku .env
   process.env.REDIRECT_URI     // Redirect URI z pliku .env
 );
