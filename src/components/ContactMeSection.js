@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 
+const API_URL = "https://portfolio-project-90d9.onrender.com";
+
 const ContactMeSection = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [response, setResponse] = React.useState(null);
@@ -26,7 +28,6 @@ const ContactMeSection = () => {
       comment: "",
     },
     onSubmit: async (values) => {
-      const API_URL = "https://portfolio-project-90d9.onrender.com";
       setIsLoading(true);
       try {
         const res = await fetch(`${API_URL}/contactme`, {
@@ -34,7 +35,12 @@ const ContactMeSection = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            name: values.firstName,
+            email: values.email,
+            type: values.type,
+            message: values.comment,
+          }),
         });
 
         const data = await res.json();
@@ -200,4 +206,3 @@ const ContactMeSection = () => {
 };
 
 export default ContactMeSection;
-
