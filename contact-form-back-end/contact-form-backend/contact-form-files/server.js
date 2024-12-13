@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 });
 
 // Endpoint do obsługi formularza
-app.post('/api/contactme', async (req, res) => {
+app.post('/api/#contactme', async (req, res) => {
   const { firstName, email, type, comment } = req.body;
 
   if (!firstName || !email || !comment) {
