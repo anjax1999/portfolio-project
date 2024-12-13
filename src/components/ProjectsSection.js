@@ -1,31 +1,31 @@
 import React from "react";
 import { Box, Heading, VStack } from "@chakra-ui/react";
-import ProjectCard from "./ProjectCard"; // Załóżmy, że masz komponent do wyświetlania kart projektów
+import ProjectCard from "./ProjectCard"; 
 import "./LandingSection.css"; // Zaimportowanie pliku CSS
 
 const projects = [
   {
-    title: "React Space",
+    title: "React Portfolio",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
+      "Portfolio Project is a responsive web application built with React, designed to showcase a personal portfolio in a modern and interactive way.",
     getImageSrc: () => require("../images/photo1.jpg"),
   },
   {
-    title: "React Infinite Scroll",
+    title: "User Management App",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
+      "User Management App is a web application built using React and Redux (with Redux Toolkit), designed for managing user information. The app fetches data from a public API and allows filtering of this data based on several criteria.",
     getImageSrc: () => require("../images/photo2.jpg"),
   },
   {
-    title: "Photo Gallery",
+    title: "Online Store Landing Page",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
+      "'Mangata and Gallo' is a static landing page designed to demonstrate HTML and CSS skills as well as a sense of aesthetics. The project emphasizes a minimalist, clean design that blends functionality with visual appeal, highlighting the capability to create responsive and visually attractive websites.",
     getImageSrc: () => require("../images/photo3.jpg"),
   },
   {
-    title: "Event planner",
+    title: "Website for Construction Company",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+      "A website designed and built by me from scratch for a construction company.",
     getImageSrc: () => require("../images/photo4.jpg"),
   },
 ];
