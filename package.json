@@ -24,6 +24,7 @@
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.3",
+    "winston": "^3.17.0",
     "yup": "^1.4.0"
   },
   "scripts": {

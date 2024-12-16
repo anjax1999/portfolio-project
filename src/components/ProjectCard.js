@@ -10,24 +10,25 @@ const ProjectCard = ({ title, description, imageSrc }) => {
         backgroundColor="white" 
         cursor="pointer" 
         borderRadius="xl" 
+        alignItems="flex-start" // Dodano, aby cała zawartość była wyrównana do lewej
       > 
         <Image borderRadius="xl" src={imageSrc} alt={title} /> 
         <VStack spacing={4} p={4} alignItems="flex-start"> 
-          <HStack justifyContent="space-between" alignItems="center"> 
-            <Heading as="h3" size="md"> 
+          <HStack justifyContent="space-between" alignItems="flex-start" width="100%"> 
+            <Heading as="h3" size="md" textAlign="left" width="100%"> 
               {title} 
             </Heading> 
           </HStack> 
-          <Text color="#64748b" fontSize="lg"> 
+          <Text color="#64748b" fontSize="lg" textAlign="left" width="100%"> 
             {description} 
           </Text> 
           <HStack spacing={2} alignItems="center"> 
-            <p>See more</p> 
+            <Text textAlign="left">See more</Text> 
             <FontAwesomeIcon icon={faArrowRight} size="1x" /> 
           </HStack> 
         </VStack> 
       </VStack> 
     ); 
- }; 
-  
- export default ProjectCard;
+}; 
+ 
+export default ProjectCard;

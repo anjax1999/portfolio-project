@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 
-const API_URL = "https://portfolio-project-90d9.onrender.com";
+const API_URL = "https://portfolio-project-90d9.onrender.com/api";
 
 const ContactMeSection = () => {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -98,7 +98,7 @@ const ContactMeSection = () => {
       >
         <Heading
           as="h1"
-          fontsize={{
+          fontSize={{
             base: "2xl",
             md: "3xl",
             lg: "4xl",
@@ -206,3 +206,4 @@ const ContactMeSection = () => {
 };
 
 export default ContactMeSection;
+
